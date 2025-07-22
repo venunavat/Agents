@@ -1,0 +1,60 @@
+{
+  "name": "Clear Downloads Folder",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        0
+      ],
+      "id": "8df989d3-59e9-4b00-bb95-9f216d4d214c",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "command": "powershell -Command \"Remove-Item -Path $env:USERPROFILE\\Downloads\\* -Recurse -Force\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        440,
+        0
+      ],
+      "id": "0b04356b-aab8-41dd-86f8-0ab823db8cfe",
+      "name": "Execute Command"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b84f0896-11c0-4282-a1c5-95cadafc5ede",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "94d6d61f979b6a15d7db474e06a880f67e301d30dd0340c0355b7d2b6ed56f3f"
+  },
+  "id": "etHQaGD0sZfR02Kh",
+  "tags": []
+}
